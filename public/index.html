@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutual Follow Viewer for Bluesky</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <form id="form">
+    <div class="field">
+      <label id="label-viewer">User 1</label>
+      <input type="text" name="handle" id="viewer">
+    </div>
+    <div class="field">
+      <label id="label-target">User 2</label>
+      <input type="text" name="handle" id="target">
+    </div>
+    <div>
+      <select id="select-mode">
+        <option value="followers">Mutual followers</option>
+        <option value="follows">Mutual follows</option>
+        <option value="known">Known followers</option>
+      </select>
+      <span id="known-hint">Shows the "followed by" users you would see if you were logged in as <i>Viewer</i>, looking at <i>Target</i>'s profile</span>
+    </div>
+    <div>
+      <button type="submit" id="submit">Submit</button>
+      <button type="button" id="stop" disabled>Stop</button>
+    </div>
+  </form>
+  <div id="list-wrapper">
+    <img src="./hourglass.gif" height="30" id="spinner" />
+    <h2 id="list-desc-known">Users who <a class="list-desc-viewer"></a> follows, and who follow <a class="list-desc-target"></a></h2>
+    <h2 id="list-desc-followers">Users that follow both <a class="list-desc-viewer"></a> and <a class="list-desc-target"></a></h2>
+    <h2 id="list-desc-follows">Users followed by both <a class="list-desc-viewer"></a> and <a class="list-desc-target"></a></h2>
+    <div id="list"></div>
+  </div>
+  <footer>
+    <span>i'm <a href="https://bsky.app/profile/gpp.bsky.social"> gpp.bsky.social</a></span>
+  </footer>
+</body>
+
+</html>
